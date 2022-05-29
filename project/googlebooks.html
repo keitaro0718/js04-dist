@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="css/sample.css">
+<title>GoogleBook検索</title>
+</head>
+<body>
+
+  <header>
+    <h1 class="header_title">GoogleBooks検索</h1>
+       
+      <p class="form1">
+          <input type="text" name="q" id="keyword" value="">
+          <button id="readbook">検索</button>
+        </p>
+    
+  </header>
+
+  <main>
+    <p id="content"></p>
+  </main>
+
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script>
+// 手順
+// 1. $.get() を使って 情報を取得する
+// 2. JSONデータ構造を基に本のタイトルを取得する
+// 3. 本のタイトル情報をHTMLに出力する
+// ---ここからは課題！
+// 4. クリックイベントで括る   
+
+$('#readbook').on("click",function(){
+  // 5. id="keyword"の入力値を取得 → URLの"?q=jquery"の"queryの文字を取得した入力値（変数）に変える"
+  let searchByKeyword = "https://www.googleapis.com/books/v1/volumes?q=query"
+  const word = $('#keyword').val()
+  searchByKeyword = searchByKeyword.replace("query", word)
+  // 6. 出版社も表示してみよう！（データ構造はconsole.logで確認！！）
+  // $.get() を使う[開始]
+  $.get( searchByKeyword, function(data){
+    console.log(data);
+    const items = data.items;
+    for (let i = 0; i < items.length; i++){
+        console.log(items[i]);// itemsを一個ずつ取得
+          const title = items[i].volumeInfo.title;
+          const publisher = items[i].volumeInfo.publisher;
+            console.log(publisher);
+      $('#content').append(`<ul><li>${title}:${publisher}</li></ul>`)
+    }
+  })
+})
+// $.get() を使う[終了]
+
+</script>
+</body>
+</html>

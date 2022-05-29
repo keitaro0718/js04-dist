@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数</title>
+</head>
+<body>
+    <button id="button">クリック</button>
+<script src="./js/jquery-3.5.1.min.js"></script>
+<script>
+
+// 関数の基本形
+function hello(){
+    console.log('こんにちは');
+    console.log('JS授業中です');
+}
+// hello();
+// hello();
+// hello();
+
+function hello2(t){
+    console.log(t);
+}
+// functionの（）の中に、tを定義。tの中身を下記で変更可能
+hello2('こんばんは');
+hello2('JS4回目');
+
+function add(a,b){
+    // console.log(a+b);
+    return a+b;
+    // returnは、関数の実行結果を外側に出す。returnを消した場合は何も出ない。
+}
+console.log(add(4,5));
+const total = add(2,3);
+console.log(total);
+
+
+
+// 関数の引数・戻り値
+
+// クリックイベント
+
+// $("#button").on("click", function () {
+//     alert("こんにちは");
+//     alert("JS授業中です");
+// });
+console.log(hello);
+// helloの関数を式ごと持ってくる
+console.log(hello());
+
+
+$("#button").on("click", hello);
+// functionには、名前のついている関数（この場合、hello）を入れるとhelloが実行できる
+
+</script>
+
+</body>
+
+</html>
