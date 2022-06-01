@@ -22,6 +22,10 @@ header {
   background-color: white;
 }
 
+#readbook_voice{
+  background-color: orange;
+}
+
 main {
   border-bottom: 1px solid #ccc;
 }
