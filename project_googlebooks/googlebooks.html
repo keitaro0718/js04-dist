@@ -42,6 +42,8 @@
 // 3. 本のタイトル情報をHTMLに出力する
 // ---ここからは課題！
 // 4. クリックイベントで括る   
+
+// 音声認識api
 const speech = new webkitSpeechRecognition();
     speech.lang = 'ja-JP';
     const start_btn = document.getElementById('start_btn');
@@ -67,6 +69,7 @@ const speech = new webkitSpeechRecognition();
         speech.start()
     };
 
+// 音声認識の結果に基づく検索
 $('#readbook_voice').on("click",function(){
   // 5. id="content_voice"の入力値を取得 → URLの"?q=jquery"の"queryの文字を取得した入力値（変数）に変える"
   let searchByKeywordVoice = "https://www.googleapis.com/books/v1/volumes?q=query"
@@ -87,6 +90,7 @@ $('#readbook_voice').on("click",function(){
   })
 })
 
+// テキストボックスによる検索
 $('#readbook').on("click",function(){
   // 5. id="keyword"の入力値を取得 → URLの"?q=jquery"の"queryの文字を取得した入力値（変数）に変える"
   let searchByKeyword = "https://www.googleapis.com/books/v1/volumes?q=query"
@@ -108,6 +112,9 @@ $('#readbook').on("click",function(){
 })
 // $.get() を使う[終了]
 
+
+// https://shinmedia20.com/javascript-speech-recognition
+// 音声検索はここを参照
 </script>
 </body>
 </html>
